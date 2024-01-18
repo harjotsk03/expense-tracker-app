@@ -14,12 +14,14 @@
   font-family: mainSuperLight;
   src: url(./fonts/made_tommy_soft/MADE\ Tommy\ Soft\ Light\ PERSONAL\ USE.otf);
 }
-
 @font-face {
   font-family: landingTitle;
   src: url(./fonts/gontserrat/Gontserrat-Bold.ttf);
 }
-
+@font-face {
+  font-family: arrows;
+  src: url(./fonts/Arrows.otf);
+}
 
 
 /* COLOR PALLETTE */
@@ -107,13 +109,14 @@ input:focus{
 }
 
 .landingPageHeader{
-  width: 100vw;  
-  padding: 3vmin;
+  width: 100vw;
+  padding: 2vmin;
   background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  z-index: 99999999;
 }
 
 .landingPageHeaderLogo{
@@ -336,7 +339,7 @@ input:focus{
   border: 3px solid var(--color4);
   width: 100%;
   text-transform: uppercase;
-  margin-bottom: 9vh;
+  margin-bottom: 6.5vh;
 }
 
 #faceBookBtn:hover{
@@ -350,11 +353,307 @@ input:focus{
 /* SIGN UP SECTION STYLE */
 
 .signUpSection{
-  border: solid 5px var(--color3);
-  width: 30vw;
+  background-color: white;
+  width: 50vmin;
   height: 70vh;
   border-radius: 20px;
+  padding: 3vmin;
   display: flex;
-  align-items: center;
+  align-items: left;
   flex-direction: column;
 }
+
+.signUpSectionTitle{
+  font-family: mainSemi;
+  font-size: 6vmin;
+  margin-top: 7vh;
+}
+
+.signUpSectionSubTitle{
+  font-size: 1.75vmin;
+  font-family: mainLight;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+}
+
+#logInInput{
+  height: 6vh;
+  padding-left: 2vmin;
+  font-size: 2.5vmin;
+  margin-bottom: 1vh;
+}
+
+#signUpBtn{
+  color: var(--color1);
+  background-color: var(--color4);
+  border: 3px solid var(--color4);
+  width: 100%;
+  border-radius: 500px;
+  text-transform: uppercase;
+  margin-bottom: 13vh;
+  margin-top: 2vh;
+}
+
+#signUpBtn:hover{
+  transform: scale(0.95);
+  background-color: var(--color8);
+  color: var(--color6);
+  border: 3px solid var(--color8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* EXPENSE PAGE STYLES */
+
+.expensePage{
+  background-color: var(--color6);
+  width: 100vw;
+  height: 100vh;
+  padding: 3vmin 4vmin;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+}
+
+#arrowBtn{
+  font-family: arrows;
+  border: none;
+  font-size: 5vmin;
+  background-color: transparent;
+  margin-right: 5vmin;
+  transition: 0.3s ease-in-out;
+}
+
+#arrowBtn:hover{
+  cursor: pointer;
+}
+
+.dropDown{
+  width: max-content;
+  margin-left: auto;
+  margin-top: 10vh;
+  background-color: transparent;
+  padding: 2vmin;
+  border-radius: 10px;
+  transition: 0.3s;
+  width: 15.5vmin;
+  height: 13vh;
+  z-index: 99999999;
+
+}
+
+.dropDown.open{
+  background-color: var(--color3);
+  width: max-content;
+  margin-left: auto;
+  margin-top: 10vh;
+  padding: 2vmin;
+  border-radius: 10px;
+  transition: 0.3s;
+  z-index: 99999999;
+
+}
+
+.dropDownContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:flex-end;
+  z-index: 99999999;
+
+  
+}
+
+.dropDown button{
+  font-family: main;
+  border: none;
+  background-color: transparent;
+  font-size: 2vmin;
+  color: var(--color8);
+  z-index: 99999999;
+
+}
+
+.dropDown button:hover{
+  border: none;
+}
+
+.closed{
+  color: var(--color8);
+  z-index: 99999999;
+
+}
+
+.opened{
+  color: var(--color1);
+  z-index: 99999999;
+
+}
+
+#profileBtn{
+  color: var(--color1);
+  z-index: 99999999;
+
+}
+
+.userInfoHeader{
+  display: flex;
+  transition: 0.3s ease-in-out;
+  margin-right: 2vmin;
+  margin-top: 1vh;
+}
+
+.userNameHeader{
+  font-family: main;
+  color: var(--color1);
+  font-size: 3vmin;
+  margin-right: 2vmin;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PROFILE PAGE STYLES */
+.profilePage{
+  background-color: var(--color1);
+  width: 100vw;
+  height: 100vh;
+  padding: 4.75vmin 0vmin;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  position: relative;
+}
+
+.profilePageHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userInfoProfileHeader{
+  display: flex;
+  margin-top: 1vh;
+}
+
+
+.dropDownProfile{
+  width: max-content;
+  margin-left: auto;
+  background-color: transparent;
+  padding: 2vmin;
+  border-radius: 10px;
+  transition: 0.3s;
+  width: 15.5vmin;
+  height: 14vh;
+  margin-right: 5vmin;
+}
+
+.dropDownProfile.open{
+  background-color: var(--color3);
+  width: max-content;
+  margin-left: auto;
+  padding: 2vmin;
+  border-radius: 10px;
+  transition: 0.3s;
+  z-index: 99999999;
+}
+
+#backToDash{
+  margin-left: 5vmin;
+  border: none;
+  background-color: transparent;
+  color: var(--color6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#backToDash:hover{
+  color: var(--color4);
+}
+
+#arrowBack{
+  font-family: arrows;
+  margin-top: 1vh;
+  font-size: 4vmin;
+  margin-right: 1vmin;
+}
+
+.dropDownProfile button{
+  font-family: main;
+  border: none;
+  background-color: transparent;
+  font-size: 2vmin;
+  color: var(--color8);
+  z-index: 99999999;
+
+}
+
+.dropDownProfile button:hover{
+  border: none;
+}
+
+#logBtn{
+  color: var(--color8);
+}
+
+#logBtn:hover{
+  color: var(--color1);
+}
+
+
+.profilePageContent {
+  display: flex;
+  width: 78vw;
+  margin-left: auto;
+  position: relative;
+  background-color: var(--color6);
+  padding: 3vmin 4vmin;
+  border-radius: 15px;
+  margin-top: -11vh;
+  margin-right: 5vmin;
+}
+
+.profilePageContentLeft{
+  background-color: var(--color1);
+  height: 80vh;
+  width: 15vw;
+  position: fixed;
+  margin-top: 10vh;
+  margin-left: 7vmin;
+  border-radius: 15px;
+}
+
+.profilePageTitle {
+  font-family: main;
+  color: var(--color1);
+  font-size: 6vmin;
+  margin-bottom: 2vh;
+}
+

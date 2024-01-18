@@ -100,14 +100,19 @@ export const SignUp = () => {
             <div className='signUpPage'>
                 {signedUp ? (
                     <div className='signUpSection'>
-                        <button className='buttonPrimary' id='signUpLogInBtn' onClick={() => setSignedUp(false)}>Log In</button>
-                        <h1>Sign Up</h1>
-        
-                        <input placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
-                        <input placeholder='Password' type='password' onChange={(e) => setPassword(e.target.value)}/>
-                        <input placeholder='Confirm Password' type='password' onChange={(e) => setConfirmPassword(e.target.value)}/>
-        
-                        <button onClick={checkPassword}>Sign Up</button>
+                        <h1 className='signUpSectionTitle'>Sign Up</h1>
+                        <h4 className='signUpSectionSubTitle'>Register now to consolidate and manage all your finances in one accessible place.</h4>
+
+                        <input id='logInInput' placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
+                        <input id='logInInput' placeholder='Password' type='password' onChange={(e) => setPassword(e.target.value)}/>
+                        <input id='logInInput' placeholder='Confirm Password' type='password' onChange={(e) => setConfirmPassword(e.target.value)}/>
+    
+                        <button className='buttonPrimary' id='signUpBtn' onClick={checkPassword}>Sign Up</button>
+
+                        <div className='signUpLogInSwitch'>
+                            <h4>Already a member?</h4>
+                            <button className='' id='signUpLogInBtn' onClick={() => setSignedUp(false)}>Log In</button>
+                        </div>
                 
                     </div>
                 ) : (
