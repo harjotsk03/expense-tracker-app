@@ -97,10 +97,10 @@ export const SignUp = () => {
 
     return (
         <>
-            <div>
+            <div className='signUpPage'>
                 {signedUp ? (
-                    <div>
-                        <button onClick={() => setSignedUp(false)}>Log In</button>
+                    <div className='signUpSection'>
+                        <button className='buttonPrimary' id='signUpLogInBtn' onClick={() => setSignedUp(false)}>Log In</button>
                         <h1>Sign Up</h1>
         
                         <input placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
@@ -111,18 +111,26 @@ export const SignUp = () => {
                 
                     </div>
                 ) : (
-                    <div>
-                        <button onClick={() => setSignedUp(true)}>Sign Up</button>
+                    <div className='logInSection'>   
+                        <h1 className='logInSectionTitle'>Sign In</h1>
+                        <h4 className='logInSectionSubTitle'>Stay up to date with your finances.</h4>
 
-                        <h1>Log In</h1>
+                        <input id='logInInput' placeholder='Email' onChange={(e) => setEmailLogIn(e.target.value)}/>
+                        <input id='logInInput' placeholder='Password' type='password' onChange={(e) => setPasswordLogIn(e.target.value)}/>
+                        <button className='forgotPasswordBtn'>FORGOT PASSWORD</button>
 
-                        <input placeholder='Email' onChange={(e) => setEmailLogIn(e.target.value)}/>
-                        <input placeholder='Password' type='password' onChange={(e) => setPasswordLogIn(e.target.value)}/>
+                        <button className='buttonPrimary' id='logInBtn' onClick={signIn}>Log In</button>
+                        <div className='line'>
+                            <div id='line'></div>
+                            <div className='orText'>or</div>
+                        </div>
+                        <button className='buttonSecondary' id='googleBtn' onClick={signInWithGoogle}>Sign In With Google</button>
+                        <button className='buttonSecondary' id='faceBookBtn' onClick={signInWithGoogle}>Sign In With Facebook</button>
 
-                        <button onClick={signIn}>Log In</button>
-
-                        <button onClick={signInWithGoogle}>Sign In With Google</button>
-
+                        <div className='signUpLogInSwitch'>
+                            <h4>New To FinVue?</h4>
+                            <button className='' id='signUpLogInBtn' onClick={() => setSignedUp(true)}>Sign Up</button>
+                        </div>
                     </div>
                 )}
             </div>

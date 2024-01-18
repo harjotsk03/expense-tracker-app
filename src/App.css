@@ -1,3 +1,360 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: main;
+  src: url(./fonts/made_tommy_soft/MADE\ Tommy\ Soft\ Bold\ PERSONAL\ USE.otf);
+}
+@font-face {
+  font-family: mainSemi;
+  src: url(./fonts/made_tommy_soft/MADE\ Tommy\ Soft\ Medium\ PERSONAL\ USE.otf);
+}
+@font-face {
+  font-family: mainLight;
+  src: url(./fonts/made_tommy_soft/MADE\ Tommy\ Soft\ Regular\ PERSONAL\ USE.otf);
+}
+@font-face {
+  font-family: mainSuperLight;
+  src: url(./fonts/made_tommy_soft/MADE\ Tommy\ Soft\ Light\ PERSONAL\ USE.otf);
+}
+
+@font-face {
+  font-family: landingTitle;
+  src: url(./fonts/gontserrat/Gontserrat-Bold.ttf);
+}
+
+
+
+/* COLOR PALLETTE */
+:root {
+  --color1: #ededed;
+  --color2: #C1D1E3;
+  --color3: #455F7D;
+  --color4: #005b96;
+  --color5: #03396c;
+  --color6: #1a314b;
+  --color7: #8498B0;
+  --color8: #ebcb92;
+}
+
+/* APPLICATION STATICS */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.buttonPrimary{
+  font-family: main;
+  padding: 1vmin 2vmin 1vmin 2vmin;
+  margin: 0;
+  color: var(--color6);
+  background-color: var(--color8);
+  width: max-content;
+  border-radius: 5px;
+  border: 3px solid var(--color8);
+  font-size: 1.75vmin;
+  transition: 0.3s ease-in-out;
+}
+
+.buttonPrimary:hover{
+  transform: scale(0.9);
+  background-color: transparent;
+  color: var(--color1);
+  cursor: pointer;
+  border: 3px solid var(--color1);
+}
+
+.buttonSecondary{
+  font-family: main;
+  padding: 1vmin 2vmin 1vmin 2vmin;
+  margin: 0;
+  color: var(--color1);
+  background-color: transparent;
+  width: max-content;
+  border-radius: 5px;
+  border: 3px solid var(--color1);
+  font-size: 1.75vmin;
+  transition: 0.3s ease-in-out;
+}
+
+.buttonSecondary:hover{
+  transform: scale(0.9);
+  background-color: transparent;
+  color: var(--color1);
+  cursor: pointer;
+  border: 3px solid var(--color1);
+}
+
+input{
+  border: solid 3px var(--color2);
+  font-family: mainSemi;
+  transition: 0.3s ease-in-out;
+}
+
+input:focus{
+  outline: none;
+  border: solid 3px var(--color6);
+}
+
+
+/* LANDING PAGE STYLE */
+.landingPage {
+  background-image: url(./images/image.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.landingPageHeader{
+  width: 100vw;  
+  padding: 3vmin;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+}
+
+.landingPageHeaderLogo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+}
+
+.landingPageHeaderLogo img{
+  width: 90px;
+  height: auto;
+  margin-left: -3vmin;
+}
+
+.landingPageContainer {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  width: 80%;
+}
+
+.landingPageTitle {
+  font-family: landingTitle;
+  color: var(--color1);
+  font-size: 4.5vmin;
+  width: max-content;
+  margin-left: -1vmin;
+}
+
+.landingPageSubTitle {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-family: landingTitle;
+  color: var(--color1);
+  font-size: 6vw;
+  width: max-content;
+}
+
+.landingPageBlurb{
+  width: 70%;
+  margin-left: 1vw;
+  margin-bottom: 2vh;
+  text-align: left;
+  color: var(--color7);
+  font-size: 1.8vmin;
+  font-family: mainLight;
+}
+
+#logInBtnLandingMain{
+  margin-left: 1vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* LOG IN PAGE STYLE */
+.signUpPage{
+  background-color: var(--color1);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUpLogInSwitch{
+  display: flex;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: mainSemi;
+  font-size: 1.5vmin;
+}
+
+.signUpLogInSwitch button{
+  font-family: mainSemi;
+  border: none;
+  background-color: transparent;
+  color: var(--color4);
+  margin-left: 0.5vmin;
+  font-size: 1.5vmin;
+  transition: 0.3s ease-in-out;
+}
+
+.signUpLogInSwitch button:hover{
+  transform: scale(0.9);
+  cursor: pointer;
+}
+
+/* LOG IN SECTION STYLE */
+
+.logInSection{
+  background-color: white;
+  width: 50vmin;
+  height: 70vh;
+  border-radius: 20px;
+  padding: 3vmin;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+}
+
+.logInSectionTitle{
+  font-family: mainSemi;
+  font-size: 6vmin;
+  margin-top: 5vh;
+}
+
+.logInSectionSubTitle{
+  font-size: 1.75vmin;
+  font-family: mainLight;
+  margin-bottom: 2vh;
+}
+
+#logInInput{
+  height: 6vh;
+  padding-left: 2vmin;
+  font-size: 2.5vmin;
+  margin-bottom: 1vh;
+}
+
+.forgotPasswordBtn{
+  width: max-content;
+  background-color: transparent;
+  border: none;
+  font-family: mainSemi;
+  font-size: 1.2vmin;
+  color: var(--color3);
+  transition: 0.3s ease-in-out;
+  margin-bottom: 3vh;
+}
+
+.forgotPasswordBtn:hover{
+  cursor: pointer;
+  color: black;
+}
+
+#logInBtn{
+  color: var(--color1);
+  background-color: var(--color4);
+  border: 3px solid var(--color4);
+  width: 100%;
+  border-radius: 500px;
+  text-transform: uppercase;
+}
+
+#logInBtn:hover{
+  transform: scale(0.95);
+  background-color: var(--color8);
+  color: var(--color6);
+  border: 3px solid var(--color8);
+}
+
+.line {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  position: relative;
+}
+
+#line {
+  border-radius: 5000px;
+  width: 100%;
+  height: 0.3vh;
+  border: solid 1px black;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+  background-color: black;
+}
+
+.orText {
+  margin-top: 2vh;
+  font-family: mainSemi;
+  position: absolute;
+  top: 0%; 
+  background-color: white;
+  padding: 0vmin 1vmin;
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 1;
+}
+
+#googleBtn{
+  border-radius: 500px;
+  color: var(--color4);
+  background-color: transparent;
+  border: 3px solid var(--color4);
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: 1vh;
+}
+
+#googleBtn:hover{
+  transform: scale(0.95);
+  background-color: var(--color6);
+  color: var(--color1);
+  border: 3px solid var(--color6);
+}
+
+#faceBookBtn{
+  border-radius: 500px;
+  color: var(--color4);
+  background-color: transparent;
+  border: 3px solid var(--color4);
+  width: 100%;
+  text-transform: uppercase;
+  margin-bottom: 9vh;
+}
+
+#faceBookBtn:hover{
+  transform: scale(0.95);
+  background-color: var(--color6);
+  color: var(--color1);
+  border: 3px solid var(--color6);
+}
+
+
+/* SIGN UP SECTION STYLE */
+
+.signUpSection{
+  border: solid 5px var(--color3);
+  width: 30vw;
+  height: 70vh;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
