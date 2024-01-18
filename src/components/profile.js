@@ -18,9 +18,28 @@ export const Profile = () => {
     const [isEditingPhoto, setIsEditingPhoto] = useState(false);
     const [fileUpload, setFileUpload] = useState(null);
     const [profileIsOpen, setProfileIsOpen] = useState(false);
+    const [personalInfo, setPersonalInfo] = useState(true);
+    const [cardWallet, setCardWallet] = useState(false);
+    const [support, setSupport] = useState(false);
 
 
+    const personalInfoTab = () => {
+        setPersonalInfo(true);
+        setCardWallet(false);
+        setSupport(false);
+    };
 
+    const cardsTab = () => {
+        setPersonalInfo(false);
+        setCardWallet(true);
+        setSupport(false);
+    };
+
+    const supportTab = () => {
+        setPersonalInfo(false);
+        setCardWallet(false);
+        setSupport(true);
+    };
     const toggleProfile = () => {
         setProfileIsOpen(!profileIsOpen);
     };
@@ -40,6 +59,9 @@ export const Profile = () => {
 
         return () => unsubscribe(); // Unsubscribe from the listener when the component unmounts
     }, [navigate]);
+
+    const splitName = userName.split(" ");
+
 
     const backToDash = () => {
         navigate('/expense-tracker');
@@ -113,49 +135,90 @@ export const Profile = () => {
                 ) : null}
             </div>
             <div className='profilePageContentLeft'>
-
+                    <button onClick={personalInfoTab} className='buttonPrimary' id='profileSideBarBtns'>Personal Information</button>
+                    <button onClick={cardsTab} className='buttonPrimary' id='profileSideBarBtns'>Cards & Wallet</button>
+                    <button onClick={supportTab} className='buttonPrimary' id='profileSideBarBtns'>Support</button>
+                    <button onClick={logOut} className='buttonPrimary' id='profileSideBarBtns'>Log Out</button>
             </div>
             <div className='profilePageContent'>
-                <div>
-                    <h1 className='profilePageTitle'>My Profile</h1>
+                    {personalInfo ? (
+                        <div>
+                            <h1 className='profilePageTitle'>Personal Information</h1>
 
-                    { isEditingPhoto ? (
-                        <div>
-                            <label>Update Profile Photo:</label>
-                        </div>
-                    ) : (
-                        <div>
-                            <img style={{ width: '100px' }} src={userPhoto} alt="User Photo" />
-                        </div>
-                    )}
+                            { isEditingPhoto ? (
+                                <div>
+                                    <label>Update Profile Photo:</label>
+                                </div>
+                            ) : (
+                                <div className='profilePhoto'>
+                                    <img src={userPhoto} alt="User Photo" />
+                                </div>
+                            )}
 
-                    {isEditingName ? (
-                        <div>
-                            <label>Update Display Name:</label>
-                            <input
-                                type="text"
-                                value={userName}
-                                onChange={(e) => setUserName(e.target.value)}
-                            />
-                            <button onClick={() => handleDisplayNameChange(userName)}>Save</button>
-                        </div>
-                    ) : (
-                        <>
-                            <div>
-                                <p>{userName}</p>
-                                <button onClick={(e) => setIsEditingName(true)}>Edit Name</button>
+                            <div className='userName'>
+                                {isEditingName ? (
+                                    <div className='editNameFalse'>
+                                        <div className='nameContainer'>
+                                            <label className='nameLabel'>First Name</label>
+                                            <input
+                                                type="text"
+                                                className='nameBox'
+                                                value={splitName[0]}
+                                                onChange={(e) => setUserName(`${e.target.value} ${splitName[1]}`)}
+                                            />
+                                        </div>
+                                        <div className='nameContainer'>
+                                            <label className='nameLabel'>Last Name</label>
+                                            <input
+                                                className='nameBox'
+                                                type="text"
+                                                value={splitName[1]}
+                                                onChange={(e) => setUserName(`${splitName[0]} ${e.target.value}`)}
+                                            />
+                                        </div>
+                                        <button className='editNameBtn' onClick={() => handleDisplayNameChange(userName)}>V</button>
+                                        <button className='editNameBtn2' onClick={() => handleDisplayNameChange(userName)}>V</button>
+                                    </div>
+                                ) : (
+                                    <div className='editNameTrue'>
+                                        <div className='nameContainer'>
+                                            <label className='nameLabel'>First Name</label>
+                                            <p className='nameBox' id='nameBox'>{splitName[0]}</p>
+                                        </div>
+                                        <div className='nameContainer'>
+                                            <label className='nameLabel'>Last Name</label>
+                                            <p className='nameBox' id='nameBox'>{splitName[1]}</p>
+                                        </div>
+                                        <button className='editNameBtn' onClick={() => setIsEditingName(true)}>E</button>
+                                        <button className='editNameBtn2' onClick={() => setIsEditingName(true)}>E</button>
+                                    </div>
+                                )}
                             </div>
-                        </>
+                            <div className='nameContainer'>
+                                <label className='nameLabel'>Email</label>
+                                <p className='emailBox'>{userEmail}</p>
+                            </div>
+
+                            {/*
+                            <div>
+                                <input className='' type='file' onChange={(e) => setFileUpload(e.target.files[0])}/>
+                                <button onClick={uploadFile}>Upload File</button>
+                            </div>
+                            */}
+                        </div>
+                    ) : cardWallet ? (
+                        <div>
+                            <h1 className='profilePageTitle'>Cards & Wallet</h1>
+                        </div>
+                    ) : support ? (
+                        <div>
+                            <h1 className='profilePageTitle'>Support</h1>
+                        </div>
+                    ) : (
+                        <div>
+                            <h1 className='profilePageTitle'>Unknown</h1>
+                        </div>
                     )}
-
-                    <p>{userEmail}</p>
-
-
-                    <div>
-                        <input className='' type='file' onChange={(e) => setFileUpload(e.target.files[0])}/>
-                        <button onClick={uploadFile}>Upload File</button>
-                    </div>
-                </div>
             </div>
         </div>
     );

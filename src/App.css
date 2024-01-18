@@ -22,6 +22,10 @@
   font-family: arrows;
   src: url(./fonts/Arrows.otf);
 }
+@font-face {
+  font-family: icons;
+  src: url(./fonts/Byom-Icons-Trial.ttf);
+}
 
 
 /* COLOR PALLETTE */
@@ -540,7 +544,7 @@ input:focus{
 
 /* PROFILE PAGE STYLES */
 .profilePage{
-  background-color: var(--color1);
+  background-color: var(--color6);
   width: 100vw;
   height: 100vh;
   padding: 4.75vmin 0vmin;
@@ -588,14 +592,14 @@ input:focus{
   margin-left: 5vmin;
   border: none;
   background-color: transparent;
-  color: var(--color6);
+  color: var(--color8);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #backToDash:hover{
-  color: var(--color4);
+  color: var(--color1);
 }
 
 #arrowBack{
@@ -633,27 +637,162 @@ input:focus{
   width: 78vw;
   margin-left: auto;
   position: relative;
-  background-color: var(--color6);
-  padding: 3vmin 4vmin;
-  border-radius: 15px;
+  background-color: var(--color1);
+  padding: 3vmin 4.5vmin;
+  border-radius: 20px;
   margin-top: -11vh;
   margin-right: 5vmin;
+  height: 80vh;
 }
 
 .profilePageContentLeft{
-  background-color: var(--color1);
+  background-color: var(--color6);
   height: 80vh;
   width: 15vw;
   position: fixed;
   margin-top: 10vh;
   margin-left: 7vmin;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
 }
+
+#profileSideBarBtns{
+  margin-top: 5vh;
+  border: none;
+  background-color: transparent;
+  color: var(--color1);
+}
+
+#profileSideBarBtns:hover{
+  transform: scale(1);
+  color: var(--color7);
+}
+
 
 .profilePageTitle {
   font-family: main;
-  color: var(--color1);
+  color: var(--color6);
   font-size: 6vmin;
   margin-bottom: 2vh;
 }
 
+.profilePhoto img{  
+  border-radius: 15px;
+  width: 120px;
+}
+
+.editNameTrue{
+  display: flex;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+}
+
+.editNameFalse{
+  display: flex;
+  align-items: center; 
+  transition: 0.3s ease-in-out;
+}
+
+.nameContainer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+  transition: 0.3s ease-in-out;
+}
+
+.nameLabel{
+  font-family: main;
+  font-size: 2vmin;
+  padding-left: 1vmin;
+  margin-bottom: 0.5vh;
+}
+
+.nameBox{
+  width: 20vw;
+  height: 6vh;
+  font-family: main;
+  font-size: 2vmin;
+  border: solid 3px var(--color7);
+  padding-left: 1vmin;
+  margin-right: 2vmin;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.emailBox{
+  width: max-content;
+  display: flex;
+  align-items: center;
+  height: 6vh;
+  font-family: mainLight;
+  font-size: 2vmin;
+  border: solid 3px var(--color7);
+  padding-left: 1vmin;
+  padding-right: 5vmin;
+  margin-right: 2vmin;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+#nameBox{
+  display: flex;
+  align-items: center;
+  font-family: mainLight;
+  font-size: 2vmin;
+  padding-left: 0vmin;
+  padding-left: 1vmin;
+}
+
+.editNameBtn{
+  font-family: icons;
+  padding: 1vmin 0vmin 1vmin 0vmin;
+  margin: 0;
+  margin-top: 5vh;
+  color: var(--color6);
+  background-color: transparent;
+  width: max-content;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.75vmin;
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  text-align: right;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-left: 17.8vw;
+}
+
+.editNameBtn2{
+  font-family: icons;
+  padding: 1vmin 0vmin 1vmin 0vmin;
+  margin: 0;
+  margin-top: 5vh;
+  color: var(--color6);
+  background-color: transparent;
+  width: max-content;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.75vmin;
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  text-align: right;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-left: 38.75vw;
+}
+
+.editNameBtn2:hover{
+  transform: scale(0.9);
+  color: var(--color8);
+  cursor: pointer;
+}
+
+
+.editNameBtn:hover{
+  transform: scale(0.9);
+  color: var(--color8);
+  cursor: pointer;
+}
