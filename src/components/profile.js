@@ -7,6 +7,28 @@ import { useNavigate } from 'react-router-dom';
 import defaultPhoto from '../images/fakeLogo.svg'; 
 import { upload } from '@testing-library/user-event/dist/upload';
 import fakeLogo from '../images/fakeLogo.svg'; 
+import Modal from 'react-modal';
+
+
+Modal.setAppElement('#root'); // Set the root element for accessibility
+
+const CustomModal = ({ isOpen, onRequestClose, onConfirm, onCancel }) => {
+    return (
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={onRequestClose}
+        className="custom-modal"
+        overlayClassName="overlay"
+        contentLabel="Confirmation Modal"
+      >
+        <p>Are you sure you want to log out?</p>
+        <div className='confirmContainer'>
+          <button className='buttonSecondary' onClick={onConfirm}>Log Out</button>
+          <button className='buttonPrimary' onClick={onCancel}>Cancel</button>
+        </div>
+      </Modal>
+    );
+};
 
 
 export const Profile = () => {
@@ -21,29 +43,66 @@ export const Profile = () => {
     const [personalInfo, setPersonalInfo] = useState(true);
     const [cardWallet, setCardWallet] = useState(false);
     const [support, setSupport] = useState(false);
+    const [activeTab, setActiveTab] = useState('personalInfo');
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
+    const handleLogout = async () => {
+      // Display confirmation modal
+      setShowConfirmation(true);
+    };
+
+    const confirmLogout = async () => {
+        // Proceed with logout
+        try {
+          await signOut(auth);
+          navigate('/');
+        } catch (error) {
+          console.error(error);
+        } finally {
+          // Close the confirmation modal
+          setShowConfirmation(false);
+        }
+    };
+    
+    const cancelLogout = () => {
+        // Close the confirmation modal
+        setShowConfirmation(false);
+    };
 
     const personalInfoTab = () => {
         setPersonalInfo(true);
         setCardWallet(false);
         setSupport(false);
-    };
-
-    const cardsTab = () => {
+        setActiveTab('personalInfo');
+      };
+      
+      const cardsTab = () => {
         setPersonalInfo(false);
         setCardWallet(true);
         setSupport(false);
-    };
-
-    const supportTab = () => {
+        setActiveTab('cardWallet');
+      };
+      
+      const supportTab = () => {
         setPersonalInfo(false);
         setCardWallet(false);
         setSupport(true);
-    };
+        setActiveTab('support');
+      };
+      
     const toggleProfile = () => {
         setProfileIsOpen(!profileIsOpen);
     };
 
+    const copyEmail = async () => {
+        try {
+          await navigator.clipboard.writeText('finvue@support.com');
+          alert('Copied to clipboard!');
+        } catch (err) {
+          console.error('Unable to copy to clipboard.', err);
+          alert('Copy to clipboard failed. Please copy manually.');
+        }
+      };
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -98,14 +157,19 @@ export const Profile = () => {
     };
 
     const logOut = async () => {
-        try {
+        // Display confirmation dialog
+        const confirmLogout = window.confirm('Are you sure you want to log out?');
+        if (confirmLogout) {
+          try {
+            // Proceed with logout
             await signOut(auth);
             navigate('/');
-        } catch (error) {
+          } catch (error) {
             console.error(error);
+          }
         }
-    };
-    
+      };
+
 
     const goToProfile = () => {
         navigate('/profile');
@@ -135,10 +199,40 @@ export const Profile = () => {
                 ) : null}
             </div>
             <div className='profilePageContentLeft'>
-                    <button onClick={personalInfoTab} className='buttonPrimary' id='profileSideBarBtns'>Personal Information</button>
-                    <button onClick={cardsTab} className='buttonPrimary' id='profileSideBarBtns'>Cards & Wallet</button>
-                    <button onClick={supportTab} className='buttonPrimary' id='profileSideBarBtns'>Support</button>
-                    <button onClick={logOut} className='buttonPrimary' id='profileSideBarBtns'>Log Out</button>
+                <button
+                onClick={personalInfoTab}
+                className={`buttonPrimary ${activeTab === 'personalInfo' ? 'activeButton' : 'personalInfo'}`}
+                id='profileSideBarBtns'
+                >
+                Personal Information
+                </button>
+
+                <button
+                onClick={cardsTab}
+                className={`buttonPrimary ${activeTab === 'cardWallet' ? 'activeButton' : 'cardWallet'}`}
+                id='profileSideBarBtns'
+                >
+                Cards & Wallet
+                </button>
+
+                <button
+                onClick={supportTab}
+                className={`buttonPrimary ${activeTab === 'support' ? 'activeButton' : 'support'}`}
+                id='profileSideBarBtns'
+                >
+                Support
+                </button>
+
+                <button className='buttonPrimary' id='logOutProfileSide' onClick={handleLogout}>Log Out</button>
+                <div className='modalBox'>
+                    <CustomModal
+                    isOpen={showConfirmation}
+                    onRequestClose={cancelLogout}
+                    onConfirm={confirmLogout}
+                    onCancel={cancelLogout}
+                    />
+                </div>          
+
             </div>
             <div className='profilePageContent'>
                     {personalInfo ? (
@@ -213,6 +307,16 @@ export const Profile = () => {
                     ) : support ? (
                         <div>
                             <h1 className='profilePageTitle'>Support</h1>
+                            <div className='supportEmail'>
+                                <p className='supportEmailMain'>Send us an email.</p>
+                                <p className='supportEmailEmail'>finvue@support.com</p>
+                                <button onClick={copyEmail} className='supportEmailBtn'>A</button>
+                            </div>
+                            <div className='supportEmail'>
+                                <p className='supportEmailMain'>Give us a call.</p>
+                                <p className='supportEmailEmail'>(888)-888-8888</p>
+                                <button onClick={copyEmail} className='supportPhoneBtn'>A</button>
+                            </div>
                         </div>
                     ) : (
                         <div>

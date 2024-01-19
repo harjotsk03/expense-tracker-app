@@ -121,6 +121,7 @@ input:focus{
   align-items: center;
   position: fixed;
   z-index: 99999999;
+  text-transform: capitalize;
 }
 
 .landingPageHeaderLogo{
@@ -520,6 +521,7 @@ input:focus{
   transition: 0.3s ease-in-out;
   margin-right: 2vmin;
   margin-top: 1vh;
+  text-transform: capitalize;
 }
 
 .userNameHeader{
@@ -527,6 +529,7 @@ input:focus{
   color: var(--color1);
   font-size: 3vmin;
   margin-right: 2vmin;
+  text-transform: capitalize;
 }
 
 
@@ -661,12 +664,45 @@ input:focus{
   margin-top: 5vh;
   border: none;
   background-color: transparent;
+}
+
+#logOutProfileSide{
+  margin-top: 5vh;
+  border: none;
+  background-color: transparent;
   color: var(--color1);
 }
 
-#profileSideBarBtns:hover{
+.personalInfo{
+  color: var(--color1);
+}
+
+.personalInfo:hover{
+  color: var(--color3);
   transform: scale(1);
-  color: var(--color7);
+}
+
+.cardWallet{
+  color: var(--color1);
+}
+
+.cardWallet:hover{
+  color: var(--color3);
+  transform: scale(1);
+}
+
+.support{
+  color: var(--color1);
+}
+
+.support:hover{
+  color: var(--color3);
+  transform: scale(1);
+}
+
+#logOutProfileSide:hover{
+  transform: scale(1);
+  color: var(--color8);
 }
 
 
@@ -712,6 +748,7 @@ input:focus{
   width: 20vw;
   height: 6vh;
   font-family: main;
+  text-transform: capitalize;
   font-size: 2vmin;
   border: solid 3px var(--color7);
   padding-left: 1vmin;
@@ -796,3 +833,100 @@ input:focus{
   color: var(--color8);
   cursor: pointer;
 }
+
+.supportEmail{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5vh;
+}
+
+.supportEmailMain{
+  font-family: main;
+  font-size: 2.5vmin;
+  margin-bottom: 0.5vh;
+}
+
+.supportEmailEmail{
+  font-family: mainLight;
+  font-size: 3vmin;
+}
+
+.supportEmailBtn{
+  position: absolute;
+  font-family: icons;
+  font-size: 2.5vmin;
+  border: none;
+  background-color: transparent;
+  color: var(--color6);
+  margin-left: 16.5vw;
+  margin-top: 4.2vh;
+  transform: rotate(75deg);
+  transition: 0.3s ease-in-out;
+}
+
+.supportEmailBtn:hover{
+  transform: rotate(90deg);
+  cursor: pointer;
+  color: var(--color8);
+}
+
+.supportPhoneBtn{
+  position: absolute;
+  font-family: icons;
+  font-size: 2.5vmin;
+  border: none;
+  background-color: transparent;
+  color: var(--color6);
+  margin-left: 13.2vw;
+  margin-top: 4.2vh;
+  transform: rotate(75deg);
+  transition: 0.3s ease-in-out;
+}
+
+.supportPhoneBtn:hover{
+  transform: rotate(90deg);
+  cursor: pointer;
+  color: var(--color8);
+}
+
+.activeButton {
+  color: var(--color8); 
+}
+
+.confirmLogOut{
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color4);
+}
+
+.custom-modal {
+  position: fixed; 
+  display: flex;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); 
+  background: var(--color3);
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  font-family: main;
+  color: var(--color1);
+  font-size: 3vmin;
+  height: 100vh;
+  outline: none;
+  flex-direction: column;
+}
+
+.confirmContainer{
+  display: flex;
+  margin-top: 2vh;
+}
+
+.custom-modal button{
+  padding: 1vmin 2vmin;
+  font-family: main;
+  font-size: 2vmin;
+  margin: 1vmin;
+}
+
