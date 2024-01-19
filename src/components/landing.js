@@ -10,7 +10,7 @@ export const Landing = () => {
 
     return(
         <div className="landingPage">
-            <div className="landingPageHeader">
+            <div className="landingPageHeader2">
                 <div className="landingPageHeaderLogo">
                     <img src={fakeLogo}/>
                     <h1 className="landingPageTitle">Fin<span style={{color: '#ebcb92'}}>Vue</span></h1>

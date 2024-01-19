@@ -112,9 +112,19 @@ export const ExpenseTracker = () => {
             </div>
         ) : null}
       </div>
-
-    
-     
+      <div className='balanceContainer'>
+        <h1 className='balanceTitle'>Current Balance</h1>
+        <h4 className='balanceAmount'>$0.00</h4>
+      </div>
+      <div className='transactionsContainer'>
+        <h1 className='transactionsTitle'>Transaction</h1>
+      </div>
+      <div className='addTransactionsContainer'>
+          <h2 className='addTransactionsTitle'>Add Transaction</h2>
+      </div>
+      <div className='stocksContainer'>
+          <h2 className='stocksTitle'>Stocks</h2>
+      </div>
     </div>
   );
 };

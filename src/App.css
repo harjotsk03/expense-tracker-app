@@ -47,6 +47,10 @@
   box-sizing: border-box;
 }
 
+html{
+  background-color: var(--color6);
+}
+
 .buttonPrimary{
   font-family: main;
   padding: 1vmin 2vmin 1vmin 2vmin;
@@ -114,6 +118,21 @@ input:focus{
 
 .landingPageHeader{
   width: 100vw;
+  margin-top: -3vh;
+  padding: 2vmin;
+  background-color: var(--color6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 99999999;
+  text-transform: capitalize;
+}
+
+
+.landingPageHeader2{
+  width: 100vw;
+  margin-top: 0vh;
   padding: 2vmin;
   background-color: transparent;
   display: flex;
@@ -123,6 +142,7 @@ input:focus{
   z-index: 99999999;
   text-transform: capitalize;
 }
+
 
 .landingPageHeaderLogo{
   display: flex;
@@ -322,9 +342,9 @@ input:focus{
 
 #googleBtn{
   border-radius: 500px;
-  color: var(--color4);
+  color: black;
   background-color: transparent;
-  border: 3px solid var(--color4);
+  border: 3px solid rgb(136, 50, 50);
   width: 100%;
   text-transform: uppercase;
   margin-bottom: 1vh;
@@ -332,16 +352,16 @@ input:focus{
 
 #googleBtn:hover{
   transform: scale(0.95);
-  background-color: var(--color6);
+  background-color: rgb(136, 50, 50);
   color: var(--color1);
-  border: 3px solid var(--color6);
+  border: 3px solid rgb(136, 50, 50);
 }
 
 #faceBookBtn{
   border-radius: 500px;
-  color: var(--color4);
+  color: black;
   background-color: transparent;
-  border: 3px solid var(--color4);
+  border: 3px solid rgb(73, 139, 225);
   width: 100%;
   text-transform: uppercase;
   margin-bottom: 6.5vh;
@@ -349,9 +369,9 @@ input:focus{
 
 #faceBookBtn:hover{
   transform: scale(0.95);
-  background-color: var(--color6);
+  background-color: rgb(73, 139, 225);
   color: var(--color1);
-  border: 3px solid var(--color6);
+  border: 3px solid rgb(73, 139, 225);
 }
 
 
@@ -427,12 +447,99 @@ input:focus{
 
 .expensePage{
   background-color: var(--color6);
-  width: 100vw;
-  height: 100vh;
+  width: 98.95vw;
+  height: max-content;
   padding: 3vmin 4vmin;
   display: flex;
   align-items: left;
   flex-direction: column;
+}
+
+
+.balanceContainer{
+  width: max-content;
+  height: max-content;
+  border-radius: 15px;
+  width: 30vw;
+  height: max-content;
+  padding: 3vmin ;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color1);
+  position: absolute;
+  margin-top: 10vh;
+  margin-left: 2vw;
+}
+
+.balanceTitle{
+  color: var(--color6);
+  font-family: landingTitle;
+  font-size: 3vw;
+}
+
+.balanceAmount{
+  font-family: landingTitle;
+  font-size: 2.75vw;
+  color: var(--color3);
+}
+
+.transactionsContainer{
+  width: 30vw;
+  height: 57vh;
+  border-radius: 15px;
+  display: flex;
+  padding: 3vmin;
+  flex-direction: column;
+  background-color: var(--color1);
+  position: absolute;
+  margin-top: calc(100vh / 3.05);
+  margin-left: 2vw;
+  overflow: hidden;
+}
+
+.transactionsTitle{
+  color: var(--color6);
+  font-family: landingTitle;
+  font-size: 2vw;
+}
+
+.addTransactionsContainer{
+  width: 35vw;
+  height: max-content;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 3vmin;
+  background-color: var(--color1);
+  position: absolute;
+  margin-top: 10vh;
+  margin-left: 34vw;
+}
+
+.addTransactionsTitle{
+  color: black;
+  font-family: landingTitle;
+  font-size: 2vw;
+}
+
+.stocksContainer{
+  width: 23vw;
+  height: 80vh;
+  border-radius: 15px;
+  display: flex;
+  padding: 3vmin;
+  flex-direction: column;
+  background-color: var(--color1);
+  position: absolute;
+  margin-top: 10vh;
+  margin-left: 70.8vw;
+}
+
+.stocksTitle{
+  color: var(--color6);
+  font-family: landingTitle;
+  font-size: 2vw;
 }
 
 #arrowBtn{
@@ -451,7 +558,7 @@ input:focus{
 .dropDown{
   width: max-content;
   margin-left: auto;
-  margin-top: 10vh;
+  margin-top: 6vh;
   background-color: transparent;
   padding: 2vmin;
   border-radius: 10px;
@@ -466,7 +573,7 @@ input:focus{
   background-color: var(--color3);
   width: max-content;
   margin-left: auto;
-  margin-top: 10vh;
+  margin-top: 6vh;
   padding: 2vmin;
   border-radius: 10px;
   transition: 0.3s;
@@ -916,6 +1023,7 @@ input:focus{
   height: 100vh;
   outline: none;
   flex-direction: column;
+  z-index: 9999999999;
 }
 
 .confirmContainer{
@@ -929,4 +1037,6 @@ input:focus{
   font-size: 2vmin;
   margin: 1vmin;
 }
+
+
 
