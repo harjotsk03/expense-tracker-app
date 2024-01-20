@@ -3,11 +3,12 @@ import { createUserWithEmailAndPassword, signOut, signInWithPopup, signInWithEma
 import { useState, useEffect } from 'react';
 import { ref, uploadBytes } from 'firebase/storage';
 import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import defaultPhoto from '../images/fakeLogo.svg'; 
 import { upload } from '@testing-library/user-event/dist/upload';
 import fakeLogo from '../images/fakeLogo.svg'; 
 import Modal from 'react-modal';
+import { useSendFeedback } from '../hooks/useSendFeedback';
 
 
 Modal.setAppElement('#root'); // Set the root element for accessibility
@@ -45,11 +46,38 @@ export const Profile = () => {
     const [support, setSupport] = useState(false);
     const [activeTab, setActiveTab] = useState('personalInfo');
     const [showConfirmation, setShowConfirmation] = useState(false);
+    const { addFeedback } = useSendFeedback(); // Extract transactions from the hook
+    const [userID, setUserID] = useState("");
+    const [feedBack, setFeedback] = useState('');
+
 
     const handleLogout = async () => {
       // Display confirmation modal
       setShowConfirmation(true);
     };
+
+
+    useEffect(() => {
+        setUserID(auth?.currentUser?.uid); // Use auth?.currentUser?.uid instead of auth?.currentUser?.userID
+    }, []);
+
+    
+    const onSubmit = (e) => {
+        e.preventDefault();
+      
+        if (userID) {
+          addFeedback({
+            userID: userID,
+            text: feedBack,
+          });
+      
+        } else {
+          console.error("userID is undefined. Transaction not added.");
+        }
+
+        setFeedback('');
+      };
+      
 
     const confirmLogout = async () => {
         // Proceed with logout
@@ -316,6 +344,13 @@ export const Profile = () => {
                                 <p className='supportEmailMain'>Give us a call.</p>
                                 <p className='supportEmailEmail'>(888)-888-8888</p>
                                 <button onClick={copyEmail} className='supportPhoneBtn'>A</button>
+                            </div>
+                            <div>
+                                <form onSubmit={onSubmit} className='supportForm'>
+                                    <label className='supportFormLabel'>Please give any and all feedback and/or issues.</label>
+                                    <textarea value={feedBack} onChange={(e) => setFeedback(e.target.value)} className='supportFormBox'></textarea>
+                                    <button className='buttonPrimary' id='supportFormBtn'>Submit</button>
+                                </form>
                             </div>
                         </div>
                     ) : (

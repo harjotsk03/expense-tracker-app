@@ -775,6 +775,12 @@ input:focus{
   cursor: pointer;
 }
 
+.table{
+  margin-top: 28vh;
+  margin-left: 33.5vw;
+}
+
+
 
 
 
@@ -1124,6 +1130,45 @@ input:focus{
 
 .activeButton {
   color: var(--color8); 
+}
+
+.supportForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.supportFormLabel{
+  font-family: main;
+  font-size: 2.5vmin;
+}
+
+.supportFormBox {
+  height: 30vh;
+  font-family: mainLight;
+  font-size: 3vmin;
+  margin-top: 1vh;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  display: block;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  resize: none;
+}
+
+.supportFormBox:focus{
+  outline: none;
+}
+
+#supportFormBtn{
+  margin-top: 1vh;
+  width: 100%;
+}
+
+#supportFormBtn:hover{
+  color: var(--color6);
+  border: solid 3px var(--color6);
+  transform: scale(0.95);
 }
 
 .confirmLogOut{
