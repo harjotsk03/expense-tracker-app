@@ -120,8 +120,8 @@ export const SignUp = () => {
                         <h1 className='logInSectionTitle'>Sign In</h1>
                         <h4 className='logInSectionSubTitle'>Stay up to date with your finances.</h4>
 
-                        <input id='logInInput' placeholder='Email' onChange={(e) => setEmailLogIn(e.target.value)}/>
-                        <input id='logInInput' placeholder='Password' type='password' onChange={(e) => setPasswordLogIn(e.target.value)}/>
+                        <input className='logInInputs' id='logInInput' placeholder='Email' onChange={(e) => setEmailLogIn(e.target.value)}/>
+                        <input className='logInInputs' id='logInInput' placeholder='Password' type='password' onChange={(e) => setPasswordLogIn(e.target.value)}/>
                         <button className='forgotPasswordBtn'>FORGOT PASSWORD</button>
 
                         <button className='buttonPrimary' id='logInBtn' onClick={signIn}>Log In</button>
