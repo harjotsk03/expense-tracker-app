@@ -466,8 +466,8 @@ input:focus{
   justify-content: center;
   display: flex;
   flex-direction: column;
-  background-color: var(--color1);
-  position: absolute;
+  background-color: white;
+    position: absolute;
   margin-top: 10vh;
   margin-left: 2vw;
 }
@@ -485,16 +485,16 @@ input:focus{
 
 .transactionsContainer{
   width: 30vw;
-  height: 57vh;
+  height: 69.5vh;
   border-radius: 15px;
   display: flex;
   padding: 3vmin;
   flex-direction: column;
-  background-color: var(--color1);
+  background-color: white;
   position: absolute;
   margin-top: calc(100vh / 3.05);
   margin-left: 2vw;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .transactionsTitle{
@@ -509,8 +509,8 @@ input:focus{
   display: flex;
   flex-direction: column;
   padding: 3vmin;
-  background-color: var(--color1);
-  position: absolute;
+  background-color: white;
+    position: absolute;
   margin-top: 10vh;
   margin-left: 33.5vw;
 }
@@ -522,13 +522,13 @@ input:focus{
 
 .stocksContainer{
   width: 24vw;
-  height: 80vh;
+  height: 92.5vh;
   border-radius: 15px;
   display: flex;
   padding: 3vmin;
   flex-direction: column;
-  background-color: var(--color1);
-  position: absolute;
+  background-color: white;
+    position: absolute;
   margin-top: 10vh;
   margin-left: 70vw;
 }
@@ -630,8 +630,10 @@ input:focus{
 .userNameHeader{
   font-family: main;
   color: var(--color1);
-  font-size: 3vmin;
+  font-size: 3.5vmin;
   margin-right: 2vmin;
+ margin-top: 0.75vh;
+  margin-left: 0.75vw;
   text-transform: capitalize;
 }
 
@@ -1215,9 +1217,135 @@ input:focus{
   font-size: 2vmin;
   margin: 1vmin;
 }
+.loadingImg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--color1);
+  font-family: main;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 15px;
+  animation: fadeInOut 2s ease-in-out infinite; /* Adjust duration and timing function as needed */
+}
+
+.loadingImg::before,
+.loadingImg::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  animation: fadeInOut 2s ease-in-out infinite; /* Adjust duration and timing function as needed */
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
 
 
+.uploadUserImg{
+  display: block;
+  align-items: center;
+  gap: 1vw;
+}
 
+.fileUpload{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vh;
+  gap: 1vw;
+}
+
+.userPhotoContainer {
+  width: 10vw; 
+  height: 10vw;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 2vh;
+}
+
+.userPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.userPhotoContainerHome {
+  width: 2.5vw; 
+  height: 2.5vw;
+  overflow: hidden;
+  border-radius: 50px;
+  margin-bottom: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5vh;
+}
+
+.userPhotoHome {
+  width: 100%;
+  height: 100%;
+  object-position: center center;
+  object-fit: cover;
+}
+
+.fileInputContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.fileInput{
+  color: var(--color5);
+  display: flex;
+  flex-direction: column;
+  border: none;
+  font-family: mainLight;
+  font-family: main;
+}
+
+.chartContainer{
+  background-color: white;
+    width: 35vw;
+  height: 55vh;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customFileInput {
+  background-color: var(--color1);
+  padding: 10px 15px;
+  font-family: mainLight;
+  font-size: 1vw;
+  width: 30vw;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.customFileInput:hover {
+  background-color: #e0e0e0;
+}
+
+
+#uploadImage:hover{
+  background-color: var(--color6);
+  border: 3px solid var(--color6);
+}
+
+.fileInput:focus{
+  border: none;
+}
 
 
 

@@ -9,6 +9,7 @@ import { useGetTransactions } from '../hooks/useGetTransactinos';
 import { getDocs, collection, addDoc, deleteDoc, doc } from "firebase/firestore";
 import { async } from '@firebase/util';
 import { BarChart } from './barChart';
+import UserImage from './userImage';
 
 
 
@@ -175,6 +176,7 @@ export const ExpenseTracker = () => {
         </div>
 
         <div className='userInfoHeader'>
+          <UserImage />
           <h4 className='userNameHeader'>{userName}</h4>
           <button id='arrowBtn' onClick={toggleProfile}>{profileIsOpen ?
             <div className='closed'>S</div>

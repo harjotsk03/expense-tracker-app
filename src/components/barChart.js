@@ -8,7 +8,7 @@ const ChartContainer = styled.div`
   height: 400px;
   border-radius: 30px;
   overflow: hidden; 
-  fontSize: 3vw,
+  fontSize: 3vw;
 `;
 
 export const options = {
@@ -18,8 +18,8 @@ export const options = {
   fontSize: 15, // Set the font size
   chartArea: {
     width: "100%",
+    height: '70%',
     display: 'block',
-    backgroundColor: 'orange', // Set the chart area background to orange
   },
   colors: ["#455F7D", "#ebcb92"], // Specify different colors for Income and Expenses
   hAxis: {
@@ -68,14 +68,22 @@ export function BarChart() {
   ];
 
   return (
-    <ChartContainer>
-      <Chart
-        chartType="PieChart"
-        width="100%"
-        height="100%"
-        data={data}
-        options={options}
-      />
-    </ChartContainer>
+    <div className="chartContainer">
+      <ChartContainer>
+      {transactions.length === 0 ? (
+        <div className='loadingContainer'>
+          <p className='loader'></p>
+        </div>
+      ) : (
+              <Chart
+                chartType="PieChart"
+                width="100%"
+                height="100%"
+                data={data}
+                options={options}
+              />
+      )}
+      </ChartContainer>
+    </div>
   );
 }

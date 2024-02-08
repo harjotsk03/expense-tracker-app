@@ -9,6 +9,7 @@ import { upload } from '@testing-library/user-event/dist/upload';
 import fakeLogo from '../images/fakeLogo.svg'; 
 import Modal from 'react-modal';
 import { useSendFeedback } from '../hooks/useSendFeedback';
+import FirebaseImageUpload from './FIrebaseImageUpload';
 
 
 Modal.setAppElement('#root'); // Set the root element for accessibility
@@ -266,17 +267,7 @@ export const Profile = () => {
                     {personalInfo ? (
                         <div>
                             <h1 className='profilePageTitle'>Personal Information</h1>
-
-                            { isEditingPhoto ? (
-                                <div>
-                                    <label>Update Profile Photo:</label>
-                                </div>
-                            ) : (
-                                <div className='profilePhoto'>
-                                    <img src={userPhoto} alt="User Photo" />
-                                </div>
-                            )}
-
+                            <FirebaseImageUpload />
                             <div className='userName'>
                                 {isEditingName ? (
                                     <div className='editNameFalse'>
