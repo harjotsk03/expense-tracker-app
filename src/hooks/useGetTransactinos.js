@@ -8,6 +8,8 @@ export const useGetTransactions = () => {
     const [totalIncome, setTotalIncome] = useState(0.00);
     const [balance, setBalance] = useState(0.00);
     const [userID, setUserID] = useState("");
+    const [createdAt, setCreatedAt] = useState(""); // Define createdAt state
+
     let unsubscribe;
 
     useEffect(() => {
@@ -37,10 +39,13 @@ export const useGetTransactions = () => {
                         const data = doc.data();
                         const id = doc.id;
     
+                        // Check if data.createdAt is not null before converting to a date
+                        const createdAt = data.createdAt ? data.createdAt.toDate() : null;
+    
                         // Remove the "$" sign and convert to a number
                         const amount = Number(data.trnasactionAmount.replace('$', ''));
     
-                        docs.push({ ...data, id, trnasactionAmount: amount });
+                        docs.push({ ...data, id, trnasactionAmount: amount, createdAt });
     
                         if (data.transactionType === 'expense') {
                             expenses += amount;
@@ -52,7 +57,7 @@ export const useGetTransactions = () => {
                     // Calculate total balance after processing all transactions
                     const balanceTotal = income - expenses;
                     setBalance(balanceTotal);
-
+    
                     setTransactions(docs);
                     setTotalExpenses(expenses);
                     setTotalIncome(income);
@@ -62,6 +67,7 @@ export const useGetTransactions = () => {
             console.error(error);
         }
     };
+    
 
     useEffect(() => {
         getTransactions();
@@ -72,5 +78,5 @@ export const useGetTransactions = () => {
         };
     }, [userID]);
 
-    return { transactions, transactionIds: transactions.map(transaction => transaction.id), totalExpenses, totalIncome, balance };
+    return { transactions, transactionIds: transactions.map(transaction => transaction.id), totalExpenses, totalIncome, balance, createdAt };
 };

@@ -780,6 +780,13 @@ input:focus{
   margin-left: 33.5vw;
 }
 
+.chart{
+  width: 37vw;
+  margin-left: 33.5vw;
+  margin-top: 29vh;
+  overflow:hidden;
+  border-radius: 20px;
+}
 
 
 
@@ -1559,3 +1566,5 @@ input:focus{
 
 
 }
+
+

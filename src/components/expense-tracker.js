@@ -8,8 +8,7 @@ import { useAddTransaction } from '../hooks/useAddTransaction';
 import { useGetTransactions } from '../hooks/useGetTransactinos';
 import { getDocs, collection, addDoc, deleteDoc, doc } from "firebase/firestore";
 import { async } from '@firebase/util';
-import { Chart } from "react-google-charts";
-import styled from 'styled-components';
+import { BarChart } from './barChart';
 
 
 
@@ -48,37 +47,6 @@ export const ExpenseTracker = () => {
   const [description, setDescription] = useState('');
   const [trnasactionAmount, setTrnasactionAmount] = useState(0.00);
   const [transactionType, setTransactionType] = useState('expense');
-
-  const StyledChartContainer = styled.div`
-    border-radius: 90px; 
-    width: 35vw;
-    height: 43vh;
-  `;
-
-
-  const data = [
-    ["Date", "Incomes", "Expenses"],
-    ["Monday", 150, 200],
-    ["Tuesday", 10, 50],
-    ["Wednesday", 500, 10],
-    ["Thursday", 20, 0],
-    ["Friday", 50, 200],
-  ];
-  
-  const options = {
-    chartArea: { width: "40%", height:'60%' },
-    colors: ["green", "red"],
-    backgroundColor: '#ededed',
-    hAxis: {
-      title: "Amount ($)",
-      minValue: 0,
-    },
-    vAxis: {
-      title: "Date",
-    },
-    fontName: 'main', // Change the font here
-    
-  };
 
 
   const handleRadioChange = (value) => {
@@ -309,19 +277,10 @@ export const ExpenseTracker = () => {
           </ul>
         )}
       </div>
-      {/*
-      <div className='table'>
-      <StyledChartContainer>
-        <Chart
-          chartType="BarChart"
-          width="100%"
-          height="400px"
-          data={data}
-          options={options}
-        />
-      </StyledChartContainer>
+      <div className='chart'>
+        <BarChart />
       </div>
-      */}
+      
     </div>
   );
 };
