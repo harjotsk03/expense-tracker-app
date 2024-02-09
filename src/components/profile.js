@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { ref, uploadBytes } from 'firebase/storage';
 import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from 'firebase/firestore';
 import { Form, useNavigate } from 'react-router-dom';
-import defaultPhoto from '../images/fakeLogo.svg'; 
+import defaultPhoto from '../images/fakeLogo.webp'; 
 import { upload } from '@testing-library/user-event/dist/upload';
 import Modal from 'react-modal';
 import { useSendFeedback } from '../hooks/useSendFeedback';
