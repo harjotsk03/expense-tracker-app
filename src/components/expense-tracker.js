@@ -2,7 +2,7 @@ import { db ,auth, googleProvider } from '../config/firebase';
 import { signOut } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import fakeLogo from '../images/fakeLogo.svg'; 
+import fakeLogo from '../images/fakeLogo.webp'; 
 import Modal from 'react-modal';
 import { useAddTransaction } from '../hooks/useAddTransaction';
 import { useGetTransactions } from '../hooks/useGetTransactinos';
