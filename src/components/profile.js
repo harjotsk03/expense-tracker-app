@@ -6,7 +6,6 @@ import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from 'firebase
 import { Form, useNavigate } from 'react-router-dom';
 import defaultPhoto from '../images/fakeLogo.svg'; 
 import { upload } from '@testing-library/user-event/dist/upload';
-import fakeLogo from '../images/fakeLogo.svg'; 
 import Modal from 'react-modal';
 import { useSendFeedback } from '../hooks/useSendFeedback';
 import FirebaseImageUpload from './FIrebaseImageUpload';

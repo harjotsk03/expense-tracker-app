@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import fakeLogo from '../images/fakeLogo.svg'; 
+import fakeLogo from '../images/fakeLogo.webp'; 
 
 
 export const Landing = () => {
