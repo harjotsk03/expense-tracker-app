@@ -40,7 +40,6 @@ export function BarChart() {
   const { transactions } = useGetTransactions();
 
   // Log transactions to check its structure and contents
-  console.log("Transactions:", transactions);
 
   // Initialize variables to hold income and expenses
   let income = 0;
@@ -48,7 +47,6 @@ export function BarChart() {
 
   // Calculate total income and total expenses from transactions
   transactions.forEach(transaction => {
-    console.log("Transaction amount:", transaction.trnasactionAmount); // Log transaction amount
     if (transaction.transactionType === 'income') {
       income += transaction.trnasactionAmount; // Fix typo here, change 'transaction.amount' to 'transaction.trnasactionAmount'
     } else if (transaction.transactionType === 'expense') {
@@ -57,8 +55,7 @@ export function BarChart() {
   });
 
   // Log calculated income and expenses
-  console.log("Income:", income);
-  console.log("Expenses:", expenses);
+  
 
   // Construct data array with consistent data types
   const data = [

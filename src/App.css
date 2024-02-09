@@ -153,9 +153,10 @@ input:focus{
 }
 
 .landingPageHeaderLogo img{
-  width: 90px;
+  width: 60px;
   height: auto;
-  margin-left: -6vmin;
+  margin-left: -3vmin;
+  margin-right: 0.5vw;
 }
 
 
@@ -1229,6 +1230,38 @@ input:focus{
 }
 
 .custom-modal button{
+  padding: 1vmin 2vmin;
+  font-family: main;
+  font-size: 2vmin;
+  margin: 1vmin;
+}
+
+.custom-modal2 {
+  position: fixed; 
+  display: flex;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); 
+  background: var(--color3);
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  font-family: main;
+  color: var(--color1);
+  font-size: 3vmin;
+  height: 100vh;
+  outline: none;
+  flex-direction: column;
+  z-index: 9999999999;
+}
+
+.confirmContainer2{
+  display: flex;
+  margin-top: 2vh;
+}
+
+.custom-modal2 button{
   padding: 1vmin 2vmin;
   font-family: main;
   font-size: 2vmin;

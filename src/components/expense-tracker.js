@@ -10,6 +10,8 @@ import { getDocs, collection, addDoc, deleteDoc, doc } from "firebase/firestore"
 import { async } from '@firebase/util';
 import { BarChart } from './barChart';
 import UserImage from './userImage';
+import { AddTransactionForm } from './addTransactionForm';
+
 
 
 
@@ -44,10 +46,12 @@ export const ExpenseTracker = () => {
   const { addTransaction } = useAddTransaction(); // Use the function directly
   const { transactions, transactionIds, balance } = useGetTransactions(); // Extract transactions from the hook
   const [userID, setUserID] = useState("");
-
   const [description, setDescription] = useState('');
   const [trnasactionAmount, setTrnasactionAmount] = useState(0.00);
   const [transactionType, setTransactionType] = useState('expense');
+  const [addingNew, setAddingNew] = useState(false);
+  const [resetForm, setResetForm] = useState(false);
+
 
 
   const handleRadioChange = (value) => {
@@ -56,7 +60,6 @@ export const ExpenseTracker = () => {
   };
 
   const onSubmit = (e) => {
-  e.preventDefault();
 
   if (userID) {
     addTransaction({
@@ -70,6 +73,7 @@ export const ExpenseTracker = () => {
     setDescription('');
     setTrnasactionAmount('0.00');
     setTransactionType('expense');
+
   } else {
     console.error("userID is undefined. Transaction not added.");
   }
@@ -98,6 +102,9 @@ export const ExpenseTracker = () => {
     // Close the confirmation modal
     setShowConfirmation(false);
   };
+
+
+
 
   useEffect(() => {
     setUserEmail(auth?.currentUser?.email);
@@ -165,6 +172,8 @@ export const ExpenseTracker = () => {
       console.error("Error deleting transaction:", error);
     }
   };
+
+  
   
 
   return (
@@ -206,51 +215,8 @@ export const ExpenseTracker = () => {
         <h1 className='balanceTitle'>Current Balance</h1>
         <h4 className='balanceAmount'>${balance.toFixed(2)}</h4>
       </div>
-      <div className='addTransactionsContainer'>
-          <h2 className='addTransactionsTitle'>Add Transaction</h2>
-          <form onSubmit={onSubmit}>
-            <input className='transactionInput' placeholder='Transaction' type='text' onChange={(e) => setDescription(e.target.value)}/>
-            <input
-              type="text"
-              value={amount}
-              className="transactionInput"
-              onChange={handleInputChange}
-              placeholder="Amount"
-              onKeyDown={(e) => {
-                // Prevent typing additional periods
-                if (e.key === '.' && hasPeriod) {
-                  e.preventDefault();
-                }
-              }}
-            />
-            <div className="radio-buttons">
-              <label className={`radio-button ${selectedIncomeType === 'income' ? 'checked' : ''}`}>
-                <input
-                  type="radio"
-                  name="incomeType"
-                  className="radio-input"
-                  value="income"
-                  onChange={() => handleRadioChange('income')}
-                />
-                <span className="radio-circle"></span>
-                Income
-              </label>
 
-              <label className={`radio-button ${selectedIncomeType === 'expense' ? 'checked' : ''}`}>
-                <input
-                  type="radio"
-                  name="incomeType"
-                  className="radio-input"
-                  value="expense"
-                  onChange={() => handleRadioChange('expense')}
-                />
-                <span className="radio-circle"></span>
-                Expense
-              </label>
-            </div>
-            <button className='buttonPrimary' id='logTransactionBtn'>Log Transaction</button>
-          </form>
-      </div>
+      <AddTransactionForm resetForm={resetForm} setResetForm={setResetForm} />
       <div className='stocksContainer'>
           <h2 className='stocksTitle'>Stock Market</h2>
       </div>
